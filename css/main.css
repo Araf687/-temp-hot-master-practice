@@ -1,0 +1,18 @@
+body{
+    margin:0;
+    padding: 0;
+    /* background-image: url(img/bg-image.jpg); */
+   
+    background-size: cover;
+}
+.arf{
+    background-image: url(img/bg-image.jpg);
+}
+.input{
+    text-align:center;
+    margin: 50px;
+}
+.input input{
+    height: 20px;
+    width: 200px;
+}
