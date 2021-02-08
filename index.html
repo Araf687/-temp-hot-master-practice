@@ -9,11 +9,29 @@
 </head>
 <body>
     <div class="input">
-        <input type="text" placeholder="Enter your location for weather info">
-        <button>Search</button>
+        <input id="city" type="text" placeholder="Enter your location for weather info">
+        <button id="btn">Search</button>
+        <h1 id="temp"></h1>
     </div>
     <script>
-        console.log("hang");
+        function fetchData(city){
+            fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a218a0b4a01d7cbedec8a75a0f8c44a8`)
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data);
+                var temperature=parseFloat(data.main.temp);
+                kelvinToCelcius=temperature-273.15
+                console.log(kelvinToCelcius+" degree");
+                document.getElementById("temp").innerText=kelvinToCelcius;
+            })
+        }
+        document.getElementById("btn").addEventListener("click",function(){
+            var city=document.getElementById("city").value;
+            fetchData(city);
+           
+        })
+        
+       
     </script>
 </body>
 </html>
